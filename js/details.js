@@ -11,8 +11,19 @@ const main = () => {
 
   const post = posts.find((p) => p.title === title);
 
-  document.body.innerHTML = `
-    <pre>${JSON.stringify(post, null, 2)}</pre>
+  document.querySelector("main").innerHTML = `
+    <h1 id="header" class="ui huge header">
+      ${post.title}
+      <div class="sub header">
+        <strong>Category:</strong> ${post.category}
+        <br />
+        <strong>Date:</strong> ${post.getFormattedDate()}
+      </div>
+    </h1>
+    <div class="ui divider"></div>
+    <div class="content">
+      ${post.article}
+    </div>
   `;
 };
 

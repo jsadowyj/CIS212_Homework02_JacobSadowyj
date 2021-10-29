@@ -2,3 +2,28 @@
   margin-top: 0.1rem;
   font-size: 4rem;
 }
+
+#navbar {
+  /* position: fixed; */
+}
+
+.container main {
+  margin-left: 8em;
+}
+
+.container .content {
+  font-size: 1.4rem;
+  margin-right: 10%;
+}
+
+.item .extra {
+  overflow: hidden;
+  line-height: 2rem;
+  max-height: 6.5rem;
+  -webkit-box-orient: vertical;
+  display: block;
+  display: -webkit-box;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 4;
+}
