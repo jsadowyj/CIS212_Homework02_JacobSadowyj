@@ -9,13 +9,11 @@ const main = () => {
 
   const posts = Post.serializeAll(JSON.parse(sessionStorage.getItem("posts")));
 
-  posts.forEach((p) => {
-    console.log(p.title);
-  });
-
   const post = posts.find((p) => p.title === title);
 
-  console.log(post);
+  document.body.innerHTML = `
+    <pre>${JSON.stringify(post, null, 2)}</pre>
+  `;
 };
 
 window.addEventListener("load", main);

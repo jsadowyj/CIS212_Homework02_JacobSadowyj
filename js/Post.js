@@ -1,15 +1,15 @@
 export default class Post {
   constructor(title, article, category) {
-    // Hopefully no collisions :)
-    this.id = Math.floor(Math.random() * 1000000000000);
     this.title = title;
     this.article = article;
     this.date = new Date();
     this.category = category;
   }
 
-  static serialize({ title, article, category }) {
-    return new Post(title, article, category);
+  static serialize({ title, article, category, date }) {
+    const post = new Post(title, article, category);
+    if (date) post.date = new Date(date);
+    return post;
   }
 
   static serializeAll(arr) {
