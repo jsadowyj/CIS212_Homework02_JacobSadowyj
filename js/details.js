@@ -20,11 +20,18 @@ const main = () => {
         <strong>Date:</strong> ${post.getFormattedDate()}
       </div>
     </h1>
+    <button id="delete" class="ui tiny inverted red button">Delete</button>
     <div class="ui divider"></div>
     <div class="content">
       ${post.article}
     </div>
   `;
+
+  const deleteBtn = document.querySelector("#delete");
+  deleteBtn.addEventListener("click", () => {
+    Post.deletePost(post);
+    window.location.replace("index.html");
+  });
 };
 
 window.addEventListener("load", main);

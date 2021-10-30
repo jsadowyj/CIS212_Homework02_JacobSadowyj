@@ -21,8 +21,20 @@ export default class Post {
   }
 
   static getAllPosts() {
-    if (!Post.hasSession()) return;
+    if (!Post.hasSession()) throw new Error("No session");
     return Post.serializeAll(JSON.parse(sessionStorage.getItem("posts")));
+  }
+
+  static addPost(post) {
+    const posts = Post.getAllPosts();
+    posts.push(post);
+    sessionStorage.setItem("posts", JSON.stringify(posts));
+  }
+
+  static deletePost({ title }) {
+    const posts = Post.getAllPosts();
+    const filteredPosts = posts.filter((post) => post.title !== title);
+    sessionStorage.setItem("posts", JSON.stringify(filteredPosts));
   }
 
   getFormattedDate() {
