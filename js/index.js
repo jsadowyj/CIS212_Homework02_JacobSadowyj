@@ -12,6 +12,10 @@ const main = () => {
   const posts = Post.serializeAll(JSON.parse(sessionStorage.getItem("posts")));
   console.log(posts);
 
+  // I know this is vulnerable to xss.. But in this case there's not a whole lot I could do
+  // since I'm only using vanilla js.
+  // PHP has a special function for sanitizing html, so once we start using that
+  // I will sanitize the inputs.
   const html = posts
     .map((post) => {
       return `
